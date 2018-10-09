@@ -16,7 +16,7 @@
 <html>
 <script>
     function confirmDelete(id) {
-        if (confirm('Are you sure?')) {
+        if (confirm('You are about to delete this employee information. Are you sure?')) {
             window.location = "product-controller?cmd=d&id="+id;
         }
     }
@@ -25,22 +25,36 @@
     <title>Employees</title>
 </head>
 <body>
-<h1>Employees</h1>
-<a href="employees-create.jsp">ADD</a>
+<h1>Employee List</h1>
+<a href="employees-create.jsp">Create new employee</a>
+
 
 <sql:query dataSource="jdbc/employees" var="result">
     SELECT * FROM employees
+    WHERE employees.emp_no = employees.emp_no
 </sql:query>
 
-
-<table border="1">
+<table border="1" style="margin-top: 20px">
+    <tr>
+        <th>Employee No.</th>
+        <th>Birth Date</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Gender</th>
+        <th>Hire Date</th>
+        <th>Update-Delete</th>
+    </tr>
     <c:forEach var="row" items="${result.rows}">
         <tr>
+            <td><c:out value="${row.emp_no}"/></td>
+            <td><c:out value="${row.birth_date}"/></td>
             <td><c:out value="${row.first_name}"/></td>
             <td><c:out value="${row.last_name}"/></td>
+            <td><c:out value="${row.gender}"/></td>
+            <td><c:out value="${row.hire_date}"/></td>
             <td>
-                <button onclick="window.location='employees-update.jsp?id=<c:out value="${row.id}"/>';">UPDATE</button>
-                <button onclick="confirmDelete(<c:out value="${row.id}"/>);">DELETE</button>
+                <button onclick="window.location='employees-update.jsp?emp_no=<c:out value="${row.emp_no}"/>';">UPDATE</button>
+                <button onclick="confirmDelete(<c:out value="${row.emp_no}"/>);">DELETE</button>
             </td>
         </tr>
     </c:forEach>

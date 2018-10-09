@@ -25,9 +25,17 @@
 
 </head>
 <body>
-<h1>Employees</h1>
+<h1>Create new employee</h1>
 <form action="product-controller">
     <table>
+        <tr>
+            <td>Employee No.</td>
+            <td><input type="number" name="emp_no"></td>
+        </tr>
+        <tr>
+            <td>Birthday</td>
+            <td><input type="date" name="birth_date"></td>
+        </tr>
         <tr>
             <td>Firstname</td>
             <td><input type="text" name="first_name"></td>
@@ -36,21 +44,21 @@
             <td>Lastname</td>
             <td><input type="text" name="last_name"></td>
         </tr>
-        <!--
         <tr>
-            <td>Category</td>
+            <td>Gender</td>
             <td>
-                <select name="category_id">
-                    <c:forEach var="row" items="${result.rows}">
-                        <option value='<c:out value="${row.id}"/>'>
-                            <c:out value="${row.name}"/>
-                        </option>
-                    </c:forEach>
+                <select name="gender">
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
                 </select>
             </td>
         </tr>
-        <tr> -->
-        <td colspan="2">
+        <tr>
+            <td>Hire date</td>
+            <td><input type="date" name="hire_date"></td>
+        </tr>
+
+        <td colspan="5">
             <input type="submit" value="Create">
         </td>
         </tr>
