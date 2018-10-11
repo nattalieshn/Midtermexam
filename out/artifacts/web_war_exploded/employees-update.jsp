@@ -32,7 +32,7 @@
 <body>
 <h1>Update : Employee <c:out value="${param.emp_no}"/></h1>
 <c:forEach var="e" items="${employees.rows}">
-    <form action="employees-controller">
+    <form action="product-controller">
         <input type="hidden" name="cmd" value="u"/>
         <input type="hidden" name="emp_no" value='<c:out value="${e.emp_no}"/>'/>
         <table>

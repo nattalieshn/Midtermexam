@@ -61,10 +61,10 @@ public class ProductServlet extends HttpServlet {
                 PreparedStatement stmt = con.prepareStatement(sql);
                 stmt.setInt(1, Integer.parseInt(emp_no));
                 stmt.execute();
-                response.sendRedirect("employees.jsp");
+                //response.sendRedirect("employees.jsp");
             } else if (cmd != null && cmd.equals("u")) {
                 // Update a product
-                sql = "UPDATE employees SET birth_date = ?, first_name = ?, last_name = ?, gender = ?, hire_date = ? WHERE emp_no = ?";
+                sql = "UPDATE employees SET  birth_date = ?, first_name = ?, last_name = ?, gender = ?, hire_date = ? WHERE emp_no = ?";
                 PreparedStatement stmt=con.prepareStatement(sql);
                 stmt.setDate(1, Date.valueOf(birth_date));
                 stmt.setString(2,first_name);
@@ -73,7 +73,7 @@ public class ProductServlet extends HttpServlet {
                 stmt.setDate(5, Date.valueOf(hire_date));
                 stmt.setInt(6, Integer.parseInt(emp_no));
                 stmt.execute();
-                response.sendRedirect("employees.jsp");
+                //response.sendRedirect("employees.jsp");
             } else {
                 // Insert
                 sql = "insert into employees (emp_no, birth_date, first_name, last_name, gender, hire_date)  values (?,?,?,?,?,?)";

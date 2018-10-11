@@ -15,9 +15,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <script>
-    function confirmDelete(id) {
+    function confirmDelete(emp_no) {
         if (confirm('You are about to delete this employee information. Are you sure?')) {
-            window.location = "product-controller?cmd=d&id="+id;
+            window.location = "product-controller?cmd=d&emp_no="+emp_no;
         }
     }
 </script>
